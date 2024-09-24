@@ -1,0 +1,19 @@
+<mxfile host="65bd71144e">
+    <diagram id="ujNpACFt7hrhDnEVRg9r" name="Page-1">
+        <mxGraphModel dx="1794" dy="883" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="2" value="&lt;font style=&quot;font-size: 24px;&quot;&gt;event table&lt;br&gt;id&lt;br&gt;title&lt;br&gt;location&lt;br&gt;notice&lt;br&gt;desc&lt;br&gt;status&lt;br&gt;year(이벤트 리스트업 파라미터)&lt;br&gt;startdate&lt;br&gt;enddate&lt;br&gt;regdate&lt;br&gt;moddate&lt;br&gt;hit&lt;br&gt;total_count&lt;br&gt;fi_id&lt;br&gt;&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="-810" y="19" width="360" height="470" as="geometry"/>
+                </mxCell>
+                <mxCell id="4" value="&lt;font style=&quot;font-size: 24px;&quot;&gt;attendees&amp;nbsp;table&lt;br&gt;id&lt;br&gt;usname&lt;br&gt;ph&lt;br&gt;email&lt;br&gt;regdate&lt;br&gt;moddate&lt;br&gt;status&lt;br&gt;re_id (예약 테이블 외래키)&lt;br&gt;count&lt;br&gt;&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="30" y="19" width="360" height="470" as="geometry"/>
+                </mxCell>
+                <mxCell id="5" value="&lt;font style=&quot;font-size: 24px;&quot;&gt;reservation table&lt;br&gt;id&lt;br&gt;ev_id&lt;br&gt;ev_name&lt;br&gt;max&lt;br&gt;reserved&lt;br&gt;&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="-400" y="10" width="360" height="470" as="geometry"/>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>
