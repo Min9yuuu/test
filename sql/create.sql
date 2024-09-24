@@ -30,7 +30,7 @@ CREATE TABLE TB_RESERVATION (
 # 예약자
 CREATE TABLE TB_ATTENDEES (
     at_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY
-    , ev_id INT NOT NULL # 외래키
+    , re_id INT NOT NULL # 외래키
     , at_usname VARCHAR(100) NOT NULL
     , at_ph VARCHAR(100) NOT NULL
     , at_email VARCHAR(100) NOT NULL
@@ -38,5 +38,5 @@ CREATE TABLE TB_ATTENDEES (
     , at_moddate DATETIME NULL ON UPDATE CURRENT_TIMESTAMP
     , at_status int DEFAULT 1
     , ev_count int NOT NULL
-    , CONSTRAINT fk_attendees_event FOREIGN KEY (ev_id) REFERENCES TB_EVENT(ev_id) -- 외래키 연결
+    , CONSTRAINT fk_attendees_event FOREIGN KEY (re_id) REFERENCES TB_RESERVATION(re_id) -- 외래키 연결
 );
