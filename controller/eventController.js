@@ -20,9 +20,8 @@ export const EventController = {
   insertEvent: async (req, res) => {
     try {
       const result = getResponseJson({});
-      console.log('req', req.body);
-      console.log('posted', result);
-
+      // TODO : reservation 같이 삽입해야함
+      EventService.insertEvent(req.body);
       return res.json(result);
     } catch (err) {
       console.error('Failed to insert event: ', err);
