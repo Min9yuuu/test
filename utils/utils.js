@@ -1,21 +1,23 @@
+// log
 export const logMessage = (level, message, err) => {
   const levels = {
-    info: "INFO",
-    warn: "WARN",
-    error: "ERROR",
+    info: 'INFO',
+    warn: 'WARN',
+    error: 'ERROR',
   };
   console.log(
-    `[${levels[level]}] ${message}${err ? `: ${err.message || err}` : ""}`
+    `[${levels[level]}] ${message}${err ? `: ${err.message || err}` : ''}`
   );
 };
 
 export const failJson = {
   success: false,
-  message: "error",
+  message: 'error',
 };
 
+// response json
 export const responseJson = ({
-  message = "test",
+  message = 'success',
   data = {},
   totalCount = 10,
 }) => {

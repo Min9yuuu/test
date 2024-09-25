@@ -1,14 +1,11 @@
-import express from 'express';
 import path from 'path';
 import {
   downloadAndDeleteFile,
   generateExcelFile,
-} from '../service/excelService';
+} from '../service/attendeesService';
 import { logMessage } from '../utils/utils';
 
-const router = express.Router();
-
-router.get('/download', async (req, res) => {
+export const downloadExcel = async (req, res) => {
   const filePath = path.join(__dirname, '..', 'temp.xlsx');
   const fileName = '2024-02-01_list.xlsx';
 
@@ -27,6 +24,4 @@ router.get('/download', async (req, res) => {
     logMessage('error', 'Failed to generate Excel file or download', err);
     res.status(500).send('Internal Server Error');
   }
-});
-
-export default router;
+};

@@ -43,7 +43,7 @@ export const generateExcelFile = async (filePath) => {
 // ---------------------------------
 
 export const downloadAndDeleteFile = async (filePath, fileName, res) => {
-  console.log('fileName', fileName)
+  console.log('fileName', fileName);
   try {
     // 파일 다운로드 후 프로젝트에 생성된 파일 삭제
     await new Promise((resolve, reject) => {
