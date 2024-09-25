@@ -2,6 +2,7 @@ import express from 'express';
 import routes from './routes/routes';
 import path from 'path';
 import dotenv from 'dotenv';
+import cors from 'cors';
 import { dbConnection } from './config/db.query';
 
 const PORT = 8080;
