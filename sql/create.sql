@@ -5,14 +5,14 @@ CREATE TABLE TB_EVENT (
     , ev_location VARCHAR(100) NOT NULL
     , ev_notice TEXT NOT NULL
     , ev_desc TEXT NOT NULL
-    , ev_status INT NOT NULL DEFAULT 1
-    , ev_year INT NOT NULL
+    , status INT NOT NULL DEFAULT 1
+    -- , ev_year INT NOT NULL
     , ev_startdate DATE NOT NULL
     , ev_enddate DATE NOT NULL
     , ev_regdate DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP
     , ev_moddate DATETIME NULL ON UPDATE CURRENT_TIMESTAMP
     , ev_totalCount INT NOT NULL DEFAULT -1
-    , fi_id VARCHAR(100)
+    -- , fi_id VARCHAR(100)
 );
 
 
@@ -23,6 +23,7 @@ CREATE TABLE TB_RESERVATION (
     , re_name VARCHAR(100)
     , re_max int NOT NULL
     , re_reserved INT NOT NULL DEFAULT 0
+    , status INT NOT NULL DEFAULT 1
     , CONSTRAINT fk_reservation_event FOREIGN KEY (ev_id) REFERENCES TB_EVENT(ev_id) -- 외래키 연결
 ); 
 
@@ -36,7 +37,7 @@ CREATE TABLE TB_ATTENDEES (
     , at_email VARCHAR(100) NOT NULL
     , at_regdate DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP
     , at_moddate DATETIME NULL ON UPDATE CURRENT_TIMESTAMP
-    , at_status int DEFAULT 1
+    , status INT NOT NULL DEFAULT 1
     , ev_count int NOT NULL
     , CONSTRAINT fk_attendees_event FOREIGN KEY (re_id) REFERENCES TB_RESERVATION(re_id) -- 외래키 연결
 );

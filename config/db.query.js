@@ -29,9 +29,9 @@ async function executeQuery(query, params = []) {
 // row 길이를 가져옴
 async function getTotalCount({ table, whereClause = '', params = [] }) {
   try {
-    const query = `SELECT COUNT(*) as count FROM ${table} ${
-      whereClause !== '' ? 'WHERE ' + whereClause : ''
-    };`;
+    const query = `SELECT COUNT(*) as count FROM ${table} 
+    WHERE status = 1
+    ${whereClause !== '' ? 'AND ' + whereClause : ''};`;
     const result = await executeQuery(query, params);
 
     if (result.length === 0 || !result[0].count) {
