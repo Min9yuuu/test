@@ -28,6 +28,8 @@ test3.test();
 // events
 router.get('/event', EventController.getEventsList);
 router.post('/event', EventController.insertEvent);
+router.put('/event/delete/:id', EventController.deleteEvent);
+router.put('/event/edit/:id', EventController.editEvent);
 
 // reservation
 

@@ -30,4 +30,31 @@ export const EventController = {
         .json(getResponseJson({ message: 'Internal Server Error' }));
     }
   },
+  deleteEvent: async (req, res) => {
+    try {
+      const result = getResponseJson({});
+      EventService.deleteEvent(req.params.id);
+      return res.json(result);
+    } catch (err) {
+      console.error('Failed to delete event: ', err);
+      return res
+        .status(500)
+        .json(getResponseJson({ message: 'Internal Server Error' }));
+    }
+  },
+  editEvent: async (req, res) => {
+    try {
+      const result = getResponseJson({});
+      EventService.editEvent({
+        id: req.params.id,
+        data: req.body,
+      });
+      return res.json(result);
+    } catch (err) {
+      console.error('Failed to update event: ', err);
+      return res
+        .status(500)
+        .json(getResponseJson({ message: 'Internal Server Error' }));
+    }
+  },
 };

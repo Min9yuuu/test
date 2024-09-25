@@ -46,4 +46,33 @@ export const EventService = {
       throw err;
     }
   },
+  deleteEvent: async (id) => {
+    const sql = `UPDATE tb_event SET status = 0 WHERE ev_id = ?`;
+    try {
+      const result = await executeQuery(sql, [id]);
+      return result;
+    } catch (err) {
+      console.error('Error deleting event:', err);
+      throw err;
+    }
+  },
+  editEvent: async ({ id, data }) => {
+    const validatedData = validateData(data);
+    const key = Object.keys(validatedData);
+    const value = Object.values(validatedData);
+
+    const sql = `
+      UPDATE tb_event
+      SET ${key.map((k, i) => `${k} = ?`).join(', ')}
+      WHERE ev_id = ?;
+      `;
+
+    try {
+      const result = await executeQuery(sql, [...value, id]);
+      return result;
+    } catch (err) {
+      console.error('Error updating event:', err);
+      throw err;
+    }
+  },
 };
