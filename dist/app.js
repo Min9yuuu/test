@@ -26,6 +26,7 @@ _asyncToGenerator(/*#__PURE__*/_regeneratorRuntime().mark(function _callee() {
         app.get('/test', function (req, res) {
           res.sendFile(_path["default"].join(__dirname, 'public', 'test.html'));
         });
+        app.use(cors());
         app.use(_express["default"].json());
         app.use(_express["default"].urlencoded({
           extended: true
@@ -36,7 +37,7 @@ _asyncToGenerator(/*#__PURE__*/_regeneratorRuntime().mark(function _callee() {
           return console.log("SERVER LISTENING ON http://localhost:".concat(PORT));
         };
         app.listen(PORT, handleListening);
-      case 9:
+      case 10:
       case "end":
         return _context.stop();
     }

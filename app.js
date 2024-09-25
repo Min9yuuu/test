@@ -18,6 +18,8 @@ dotenv.config();
     res.sendFile(path.join(__dirname, 'public', 'test.html'));
   });
 
+  app.use(cors());
+
   app.use(express.json());
   app.use(express.urlencoded({ extended: true }));
   // api entry points
