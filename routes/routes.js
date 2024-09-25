@@ -1,7 +1,7 @@
 import express from 'express';
 import { logMessage, getResponseJson } from '../utils/utils';
 import { downloadExcel } from '../controller/attendeesController';
-import { getEventsByYear } from '../controller/eventController';
+import { EventController } from '../controller/eventController';
 
 const router = express.Router();
 
@@ -11,12 +11,23 @@ const test1 = async (req, res) => {
 
 // for post
 const test2 = async (req, res) => {
-  return res.json(getResponseJson({}));
+  const result = getResponseJson({});
+  console.log('req', req.body);
+  console.log('posted', result);
+  return res.json(result);
 };
 
+const test3 = {
+  test: () => {
+    console.log('test call');
+  },
+};
+
+test3.test();
+
 // events
-router.get('/event', getEventsByYear);
-router.post('/event');
+router.get('/event', EventController.getEventsList);
+router.post('/event', EventController.insertEvent);
 
 // reservation
 
