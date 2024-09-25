@@ -16,15 +16,18 @@ export const failJson = {
 };
 
 // response json
-export const responseJson = ({
-  message = 'success',
-  data = {},
-  totalCount = 10,
-}) => {
-  return {
+export const getResponseJson = ({ message = 'success', data, totalCount }) => {
+  const response = {
     success: true,
     message,
-    data,
-    totalCount,
   };
+
+  if (data != null) {
+    response.data = data;
+  }
+
+  if (totalCount >= 0) {
+    response.totalCount = totalCount;
+  }
+  return response;
 };

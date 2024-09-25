@@ -3,7 +3,9 @@ import { executeQuery, getTotalCount } from '../config/db.query';
 export const getEvents = async () => {
   try {
     const result = await executeQuery(
-      'SELECT * FROM tb_event WHERE status = 1;',
+      `SELECT * FROM tb_event 
+      WHERE status = 1
+      ORDER BY ev_id DESC;`,
       []
     );
     return result;
