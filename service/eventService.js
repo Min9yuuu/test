@@ -10,7 +10,7 @@ export const EventService = {
       ev_desc, status, ev_startdate, ev_enddate, 
       ev_regdate, ev_moddate, ev_totalCount,
       IF(ev_startdate >= NOW(), 1, 0) AS is_end
-    FROM tb_event 
+    FROM TB_EVENT 
         WHERE status = 1
         ORDER BY ev_id DESC
         ;`;
@@ -24,7 +24,7 @@ export const EventService = {
   },
   getEventsTotalCount: async () => {
     return await getTotalCount({
-      table: 'tb_event',
+      table: 'TB_EVENT',
     });
   },
   insertEvent: async (data) => {
@@ -34,7 +34,7 @@ export const EventService = {
     const value = Object.values(validatedData);
 
     const sql = `
-      INSERT INTO tb_event (${key.join(', ')})
+      INSERT INTO TB_EVENT (${key.join(', ')})
       VALUES (${value.map(() => '?').join(', ')});
       `;
 
@@ -47,7 +47,7 @@ export const EventService = {
     }
   },
   deleteEvent: async (id) => {
-    const sql = `UPDATE tb_event SET status = 0 WHERE ev_id = ?`;
+    const sql = `UPDATE TB_EVENT SET status = 0 WHERE ev_id = ?`;
     try {
       const result = await executeQuery(sql, [id]);
       return result;
@@ -62,7 +62,7 @@ export const EventService = {
     const value = Object.values(validatedData);
 
     const sql = `
-      UPDATE tb_event
+      UPDATE TB_EVENT
       SET ${key.map((k, i) => `${k} = ?`).join(', ')}
       WHERE ev_id = ?;
       `;
